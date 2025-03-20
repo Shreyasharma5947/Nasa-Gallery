@@ -113,6 +113,72 @@ You can obtain the key from [NASA API](https://api.nasa.gov/).
 
 ---
 
+# Accessing NASA Gallery on Mobile using Ngrok
+
+Follow these steps to access your NASA Gallery on your phone using **ngrok**:
+
+## ✅ Prerequisites
+- Ensure **ngrok** is installed on your computer.
+- Your NASA Gallery app should be running locally.
+- Your phone and computer should be connected to the same Wi-Fi network.
+
+---
+
+## 🚀 Step 1: Start the Local Server
+1. Open **Command Prompt** on your computer.
+2. Navigate to your project directory using the `cd` command:
+    ```bash
+    cd path\to\your\nasa-gallery
+    ```
+3. Start the server using one of the following commands:
+    - **For Python**:  
+      ```bash
+      python -m http.server 8000
+      ```
+    - **For Node.js**:  
+      ```bash
+      npm start
+      ```
+4. Ensure your app is running locally at:  
+    ```
+    http://localhost:8000
+    ```
+
+---
+
+## 🌐 Step 2: Start Ngrok
+1. Open a new **Command Prompt** window.
+2. Run the following command to expose your local server:
+    ```bash
+    ngrok http 3000
+    ```
+    - Replace `3000` with your actual port if it's different.
+3. Once ngrok is running, it will generate a public URL like:
+    ```
+    Forwarding                    https://abc123.ngrok-free.app -> http://localhost:8000
+    ```
+4. Copy the **ngrok URL**.
+
+---
+
+## 📱 Step 3: Access the Gallery on Your Phone
+1. Open a browser on your phone.
+2. Paste the **ngrok URL** (e.g., `https://abc123.ngrok-free.app`) into the address bar.
+3. Enjoy your NASA Gallery from your mobile device!
+
+---
+
+## ⚡ Troubleshooting
+- Ensure your firewall or antivirus is not blocking ngrok.
+- Restart ngrok if the link expires.
+- Verify that your local server is running and accessible on `http://localhost:3000`.
+
+---
+
+Feel free to reach out if you encounter any issues! 😊
+
+
+
 ## 📜 License
 
 This project is licensed under the **MIT License**.
