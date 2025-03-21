@@ -9,13 +9,13 @@ const NasaGallery = () => {
   const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  const [filterType, setFilterType] = useState("all");
 
   // Fetch images from NASA API
   const fetchImages = (date = "") => {
     let API_URL = date
       ? `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}&date=${date}`
       : `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}&count=10`;
-
 
 
     fetch(API_URL)
@@ -60,9 +60,15 @@ const NasaGallery = () => {
     document.body.classList.toggle("dark-theme");
   };
 
+  // Filter images/videos
+  const filteredItems = (showFavorites ? favorites : images).filter((item) => {
+    if (filterType === "all") return true;
+    return filterType === "image" ? item.media_type === "image" : item.media_type === "video";
+  });
+
   return (
 <div className={`gallery-container ${darkMode ? "dark" : ""}`}>
-{/* Header with title and buttons */}
+   {/* Header with title and buttons */}
       <header className="gallery-header">
         <h1 className="header-title">🚀 NASA Astronomy Gallery 🌌</h1>
         <div className="buttons">
@@ -72,28 +78,50 @@ const NasaGallery = () => {
           <button className="toggle-btn" onClick={toggleFavorites}>
             {showFavorites ? "📷 View Gallery" : "⭐ View Favorites"}
           </button>
+          {/* Filter Button */}
+          <select className="filter-btn" value={filterType} onChange={(e) => setFilterType(e.target.value)}>
+            <option value="all">All</option>
+            <option value="image">Images</option>
+            <option value="video">Videos</option>
+          </select>
         </div>
       </header>
 
       {/* Search Bar */}
-      {!showFavorites && (
-        <div className="search-bar">
-          <input
-            type="date"
-            value={searchDate}
-            onChange={(e) => setSearchDate(e.target.value)}
-          />
-          <button onClick={() => fetchImages(searchDate)}>🔍 Search</button>
-        </div>
-      )}
+      {/* Search Bar */}
+{!showFavorites && (
+  <div className="search-bar">
+    <input
+      type="date"
+      value={searchDate}
+      onChange={(e) => setSearchDate(e.target.value)}
+    />
+    <button onClick={() => fetchImages(searchDate)}>🔍 Search</button>
 
+    {/* Show Back Button Only When Searching */}
+    {searchDate && (
+      <button onClick={() => { 
+          setSearchDate("");  // Clear search
+          fetchImages();      // Fetch default images
+        }} 
+        className="back-btn"
+      >
+        🔙 Back
+      </button>
+    )}
+  </div>
+)}
       {/* Image Grid */}
       <div className="image-grid">
-        {(showFavorites ? favorites : images).map((item, index) => (
+        {filteredItems.map((item, index) => (
           <div key={index} className="image-card">
             <h3>{item.title}</h3>
-            <p>{item.date}</p>
-            <img src={item.url} alt={item.title} className="nasa-image" />
+            <p>{item.date ? item.date : "Date not available"}</p> {/* Fixed date display */}
+            {item.media_type === "image" ? (
+              <img src={item.url} alt={item.title} className="nasa-image" />
+            ) : (
+              <iframe src={item.url} title={item.title} className="nasa-video" allowFullScreen></iframe>
+            )}
             {showFavorites ? (
               <button className="remove-btn" onClick={() => removeFromFavorites(item)}>
                 ❌ Remove
