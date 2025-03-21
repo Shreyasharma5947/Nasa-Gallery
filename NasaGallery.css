@@ -1,257 +1,285 @@
 /* General Styles */
 .app-container {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
-    transition: background 0.3s, color 0.3s;
-  }
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+}
 
-  /* Title Styling */
+/* Title Styling */
 .header-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 20px;
-    color: white;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  
-  /* Light & Dark Theme */
-  .dark-mode {
-    background-color: #121212;
-    color: white;
-  }
-  
-  /* Header */
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
-  
-  h1 {
-    margin: 0;
-  }
-  
-  /* Buttons */
-  .buttons {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .toggle-btn, .theme-btn {
-    padding: 8px 12px;
-    font-size: 14px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .toggle-btn {
-    background: #007bff;
-    color: white;
-  }
-  
-  .theme-btn {
-    background: #ff9800;
-    color: white;
-  }
-  
-  /* Search Bar */
-  .search-bar {
-    margin: 20px 0;
-  }
-  
-  .search-bar input {
-    padding: 8px;
-    margin-right: 10px;
-  }
-  
-  /* Gallery Grid - Now 2 Images Per Row */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-    justify-content: center;
-  }
-  
-  /* Image Card */
-  .image-card {
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  .dark-mode .image-card {
-    background: #333;
-  }
-  
-  /* Image Styling */
-  .image-card img {
-    width: 100%;
-    border-radius: 5px;
-    max-height: 300px;
-    object-fit: cover;
-  }
-  
-  /* Favorite & Remove Buttons */
-  .favorite-btn, .remove-btn {
-    width: 100%;
-    padding: 8px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-  }/* Dark Theme */
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Light & Dark Theme */
+.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+/* Ensure text is visible in dark mode */
+/* Ensure text remains visible in dark mode */
+.dark-theme .image-card h3,
+.dark-theme .image-card p {
+    color: #ffffff !important; /* Force text to stay white */
+}
+
+/* Fix background blending issues */
+.dark-theme .image-card {
+    background-color: #222 !important; /* Darken card background */
+    border: 1px solid #555; /* Add subtle border for contrast */
+}
+
+/* Improve readability with a shadow */
+.dark-theme .image-card h3,
+.dark-theme .image-card p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-btn, .theme-btn {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.toggle-btn {
+  background: #007bff;
+  color: white;
+}
+
+.theme-btn {
+  background: #ff9800;
+  color: white;
+}
+
+/* Search Bar */
+.search-bar {
+  margin: 20px 0;
+}
+
+.search-bar input {
+  padding: 8px;
+  margin-right: 10px;
+}
+
+/* Gallery Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+/* Image Card */
+.image-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Dark mode adjustments */
+.dark-mode .image-card {
+  background: #333;
+  color: white;
+}
+
+/* Ensure text in image cards is visible in dark mode */
+.dark-mode .image-card h3,
+.dark-mode .image-card p {
+  color: white !important;
+}
+
+/* Image Styling */
+.image-card img {
+  width: 100%;
+  border-radius: 5px;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+/* Favorite & Remove Buttons */
+.favorite-btn, .remove-btn {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Dark Theme */
 .dark-theme {
-    background-color: #121212;
-    color: white;
-  }
-  
-  /* Page Container */
-  .gallery-container {
-    padding: 20px;
-    transition: background 0.3s ease-in-out;
-  }
-  
-  /* Header Styling */
-  .gallery-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px;
-  }
-  
-  /* Title Styling */
-  .header-title {
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-  }
-  
-  /* Buttons Styling */
-  .buttons {
-    display: flex;
-    gap: 10px;
-  }
-  
-  .theme-btn, .toggle-btn {
-    padding: 10px 15px;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: 0.3s;
-  }
-  
-  .theme-btn {
-    background: #ffcc00;
-    color: black;
-  }
-  
-  .toggle-btn {
-    background: #ff5733;
-    color: white;
-  }
-  
-  .theme-btn:hover {
-    background: #e6b800;
-  }
-  
-  .toggle-btn:hover {
-    background: #e04e1f;
-  }
-  
-  /* Search Bar */
-  .search-bar {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .search-bar input {
-    padding: 8px;
-    font-size: 1rem;
-    margin-right: 10px;
-  }
-  
-  .search-bar button {
-    padding: 8px 15px;
-    font-size: 1rem;
-    background: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .search-bar button:hover {
-    background: #0056b3;
-  }
-  
-  /* Image Grid */
-  .image-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two images per row */
-    gap: 20px;
-  }
-  
-  /* Image Card */
-  .image-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    text-align: center;
-    transition: 0.3s;
-  }
-  
-  .image-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  /* NASA Image */
-  .nasa-image {
-    width: 100%;
-    border-radius: 8px;
-  }
-  
-  /* Favorite Button */
-  .favorite-btn {
-    margin-top: 10px;
-    padding: 8px 12px;
-    font-size: 1rem;
-    background: #ff9900;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: 0.3s;
-  }
-  
-  .favorite-btn:hover {
-    background: #e68a00;
-  }
-  
-  
-  .favorite-btn {
-    background: #ffcc00;
-    color: black;
-  }
-  
-  .remove-btn {
-    background: #ff4d4d;
-    color: white;
-  }
+  background-color: #121212;
+  color: white;
+}
+
+/* Page Container */
+.gallery-container {
+  padding: 20px;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Header Styling */
+.gallery-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+/* Title Styling */
+.header-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+/* Buttons Styling */
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.theme-btn, .toggle-btn {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.theme-btn {
+  background: #ffcc00;
+  color: black;
+}
+
+.toggle-btn {
+  background: #ff5733;
+  color: white;
+}
+
+.theme-btn:hover {
+  background: #e6b800;
+}
+
+.toggle-btn:hover {
+  background: #e04e1f;
+}
+
+/* Search Bar */
+.search-bar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  padding: 8px;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+.search-bar button {
+  padding: 8px 15px;
+  font-size: 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.search-bar button:hover {
+  background: #0056b3;
+}
+
+/* Image Grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two images per row */
+  gap: 20px;
+}
+
+/* Image Card */
+.image-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.image-card:hover {
+  transform: translateY(-5px);
+}
+
+/* NASA Image */
+.nasa-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Favorite Button */
+.favorite-btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  background: #ff9900;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.favorite-btn:hover {
+  background: #e68a00;
+}
+
+.favorite-btn {
+  background: #ffcc00;
+  color: black;
+}
+
+.remove-btn {
+  background: #ff4d4d; 
+  color: white;
+}
