@@ -5,8 +5,8 @@ A **React** application that uses **NASA's Astronomy Picture of the Day (APOD)**
 ---
 
 ## 🌍 **Live Demo**  
-🔗 **[View the App on Vercel](https://vercel.com/shreyasharma5947s-projects/nasa-gallery)**  
-
+[🔗(https://vercel.com/shreyasharma5947s-projects/nasa-gallery) 
+](https://galley.vtubug.com/)
 ---
 
 ## 📌 Features
