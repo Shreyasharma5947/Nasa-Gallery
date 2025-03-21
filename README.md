@@ -81,7 +81,7 @@ npm start
 
 ---
 
-## 🚀 How to Deploy on GitHub & Vercel
+## 🚀 How to Deploy on GitHub
 
 ### Step 1️⃣: Initialize Git & Push to GitHub
 ```bash
@@ -93,10 +93,8 @@ git remote add origin https://github.com/Shreyasharma5947/nasa-gallery.git
 git push -u origin main
 ```
 
-### Step 2️⃣: Deploy on Vercel
-1. Visit **[Vercel](https://vercel.com/)** and sign in using your GitHub account.
-2. Click on **"New Project"** → Select your repository → **Deploy**.
-3. Once deployed, copy the provided link (e.g., `https://nasa-gallery.vercel.app/`).
+### Step 2️⃣: Deployed in
+    https://galley.vtubug.com/
 
 ---
 
